@@ -2,21 +2,22 @@
 ### DateUtils
 
 ```java
-        String start = "2020-01-01 00:00:00";
-        String end = "2021-01-01 00:00:01";
+    String start = "2020-01-01 00:00:00";
+    String end = "2021-01-01 00:00:01";
 
-        List<Date> dateList = DateUtils.scale(start, end, Calendar.MONTH, 1);
-        dateList.stream().forEach(s->{
-            System.out.println(s);
-        });
+    List<Date> dateList = DateUtils.scale(start, end, Calendar.MONTH, 1);
+    dateList.stream().forEach(s->{
+        System.out.println(s);
+    });
 ```
 
 ```java
-     String start = "2020-01-01 00:00:00";
-            String end = "2021-01-01 00:00:01";
-     DateUtils.scale(start, end, Calendar.MONTH, 1, (Date s, Date e, Integer index) -> {
-               System.out.println(s);
-            });
+    String start = "2020-01-01 00:00:00";
+    String end = "2021-01-01 00:00:01";
+
+    DateUtils.scale(start, end, Calendar.MONTH, 1, (Date s, Date e, Integer index) -> {
+        System.out.println(s);
+    });
 ```
 ```text
 Wed Jan 01 00:00:00 CST 2020
