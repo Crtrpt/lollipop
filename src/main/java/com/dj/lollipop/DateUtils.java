@@ -18,9 +18,9 @@ public class DateUtils {
      * @param start 开始时间
      * @param end   结束时间
      * @param tick  步长单位
-     * @param f     步长
+     * @param step     步长
      */
-    public static List<Date> scale(Date start, Date end, Integer tick, Integer f) {
+    public static List<Date> scale(Date start, Date end, Integer tick, Integer step) {
         List<Date> ret = new ArrayList<>();
         Calendar endCalendar = Calendar.getInstance();
         endCalendar.setTime(end);
@@ -28,7 +28,7 @@ public class DateUtils {
         startCalendar.setTime(start);
         Date startDate = startCalendar.getTime();
         do {
-            startCalendar.add(tick, f);
+            startCalendar.add(tick, step);
             if (startCalendar.before(endCalendar)) {
                 ret.add(startDate);
             } else {
@@ -107,7 +107,7 @@ public class DateUtils {
         scale(getDate(start), getDate(end), tick, step, action);
     }
 
-    public static List<Date> scale(String start, String end, Integer tick, Integer f) throws ParseException {
-        return scale(getDate(start), getDate(end), tick, f);
+    public static List<Date> scale(String start, String end, Integer tick, Integer step) throws ParseException {
+        return scale(getDate(start), getDate(end), tick, step);
     }
 }

@@ -21,9 +21,13 @@ class DateUtilsTest {
         String end = "2021-01-01 00:00:01";
 
         List<Date> dateList = DateUtils.scale(start, end, Calendar.MONTH, 1);
+        dateList.stream().forEach(s->{
+            System.out.println(s);
+        });
         assertEquals(dateList.size(), 12);
         List<Date> callBack = new ArrayList<>();
         DateUtils.scale(start, end, Calendar.MONTH, 1, (Date s, Date e, Integer index) -> {
+            System.out.println(s);
             callBack.add(s);
         });
 
